@@ -2,217 +2,107 @@
 <html lang="en"> <!-- 网页声明 zh-CN指的是中文 cn就是英文 -->
 
 <head> <!-- 头部标签开始 -->
-    <meta charset="UTF-8"> <!-- 声明字符编码 -->
-    <!-- <meta name="referrer" content="never">葫芦侠CDN图片防盗链 -->
-    <title>Mr.Chen </title> <!-- 网页标题 -->
-    <link rel="shortcut icon" href="./ico/ico.ico" type="image/x-icon"> <!-- 网页标题前的图标 -->
+	<meta charset="UTF-8"> <!-- 声明字符编码 -->
+	<!-- <meta name="referrer" content="never">葫芦侠CDN图片防盗链 -->
+	<title>Mr.Chen </title> <!-- 网页标题 -->
+	<link rel="shortcut icon" href="./ico/ico.ico" type="image/x-icon"> <!-- 网页标题前的图标 -->
 
-    <link rel="stylesheet" href="./css/bj.css"><!-- 背景 -->
-    <link rel="stylesheet" href="./css/xzmf.css"> <!-- 旋转魔方 -->
-    <link rel="stylesheet" href="./css/mbl.css"> <!-- 毛玻璃球 -->
-    <link rel="stylesheet" href="./css/APlayer.min.css"> <!-- 音乐播放器 -->
+	<link rel="stylesheet" href="./css/bj.css"><!-- 背景 -->
+	<link rel="stylesheet" href="./css/xzmf.css"> <!-- 旋转魔方 -->
+	<link rel="stylesheet" href="./css/mbl.css"> <!-- 毛玻璃球 -->
+	<link rel="stylesheet" href="./css/APlayer.min.css"> <!-- 音乐播放器 -->
 
 
-    <!-- 网页样式--css -->
-    <style>
-        .div1 {
-            position: fixed;
-            height: 800px;
-            width: 600px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            border: 0px solid #fff;
-            backdrop-filter: blur(3px);
-        }
+	<!-- 网页样式--css -->
+	<style>
 
-        .tx {
-            width: 80px;
-            height: 80px;
-            top: 200px;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 2px solid #c9c2c254;
-            border-radius: 100%;
-            overflow: hidden;
-            position: absolute;
-        }
-
-        img {
-            max-height: 100%;
-        }
-
-        .div2 {
-            font-size: 15PX;
-            position: absolute;
-            height: 150px;
-            padding: 10px;
-            top: 330px;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: aliceblue;
-
-        }
-
-        .text span {
-            position: relative;
-            display: inline-block;
-            transform-origin: bottom;
-            text-indent: 0;
-
-        }
-
-        .text .move {
-            animation: up 2s linear forwards;     
-        }
-
-        @keyframes up {
-            100% {
-                opacity: 0;
-                filter: blur(20px);
-                transform: translate(600px, -500px) rotate(360deg) scale(5);
-            }
-        }
-
-        .div3 {
-            font-size: 16px;
-            position: absolute;
-            height: 150px;
-            padding: 10px;
-            top: 480px;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: aliceblue;
-        }
-
-        .div3 ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .div3 li {
-            float: left;
-        }
-
-        .div3 li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 5px 3px;
-            text-decoration: none;
-        }
-
-        .div3 li a:hover:not(.active) {
-            color: #4be9ac;
-        }
-    </style>
+	</style>
 </head>
 <!-- 头部标签结束 -->
 
 <body><!-- 页面主体开始 -->
 
-    <!--背景-->
-    <canvas id="canv"></canvas>
-    <script src="js/bj.js" type="text/javascript"></script>
+	<!--背景-->
+	<canvas id="canv"></canvas>
+	<script src="js/bj.js" type="text/javascript"></script>
 
-    <!-- 旋转魔方 -->
-    <div class="xzmf">
-        <div class="mf_rubik_cube">
-            <p class="handsome_mf">☆</p>
-            <p class="handsome_mf">☆</p>
-            <p class="handsome_mf">☆</p>
-            <p class="handsome_mf">☆</a>
-            <p class="handsome_mf">☆</p>
-            <p class="handsome_mf">☆</p>
-        </div>
-    </div>
+	<!-- ----------------------------------------------------------------------- -->
 
-    <!--毛玻璃球-->
-    <div class="mbl">
-        <div class="mbl1"></div>
-        <div class="mbl2">
-            <div class="mbl3"></div>
-            <p class="mbl4">当前时间:</p>
-            <p>
-            <div class="jsq"></div>
-            </p>
-        </div>
-    </div>
+	<!-- 旋转魔方 -->
+	<div class="xzmf">
+		<div class="mf_rubik_cube">
+			<p class="handsome_mf">☆</p>
+			<p class="handsome_mf">☆</p>
+			<p class="handsome_mf">☆</p>
+			<p class="handsome_mf">☆</a>
+			<p class="handsome_mf">☆</p>
+			<p class="handsome_mf">☆</p>
+		</div>
+	</div>
 
-    <!-- 中间区域 -->
-    <div class="div1"></div>
+	<!-- ----------------------------------------------------------------------- -->
 
-    <!-- 头像 -->
-    <div class="tx"><img src="./img/tx.png" alt="头像"></div>
+	<!--毛玻璃球-->
+	<div class="mbl">
+		<div class="mbl1"></div>
+		<div class="mbl2">
+			<div class="mbl3"></div>
+			<p class="mbl4">当前时间:</p>
+			<p>
+			<div class="jsq"></div>
+			</p>
+		</div>
+	</div>
 
-    <!-- 文字烟雾效果 -->
-    <div class="div2">
-        <center>
-            <h2>逃跑吧</h2><br>
-            <p class="text">“逃出这满是世俗的生活，把自己流放到世界上的某个角落。”</p>
-        </center>
-    </div>
-    <script>var txt = document.querySelector(".text");
-        txt.innerHTML = txt.textContent.replace(/\S/g, "<span>$&</span>");
-        var arr = document.querySelectorAll("span");
+	<!-- ----------------------------------------------------------------------- -->
 
-        arr.forEach(function (temp) {
-            temp.addEventListener('mouseover', () => {
-                temp.classList.add('move');
-            })
-        }) 
-    </script>
+	<!-- 中间区域 -->
+	<div class="div1">
+
+		<!-- 头像 -->
+		<div class="tx"><img src="./img/tx.png" alt="头像"></div>
+
+		<!-- 文字烟雾效果 -->
+		<div class="div1-1">
+			<center>
+				<h2>逃跑吧</h2><br>
+				<p class="text">“逃出这满是世俗的生活，把自己流放到世界上的某个角落。”</p>
+			</center>
+		</div>
+		<!-- ----------------------------------------------------------------------- -->
+		<script>var txt = document.querySelector(".text");
+			txt.innerHTML = txt.textContent.replace(/\S/g, "<span>$&</span>");
+			var arr = document.querySelectorAll("span");
+
+			arr.forEach(function (temp) {
+				temp.addEventListener('mouseover', () => {
+					temp.classList.add('move');
+				})
+			}) 
+		</script>
+		<!-- ----------------------------------------------------------------------- -->
+		<div class="div1-2">
+			<ul>
+				<li><a href="">首页</a></li>
+				<li> &nbsp; . &nbsp; </li>
+				<li><a href="">QQ</a></li>
+				<li> &nbsp; . &nbsp; </li>
+				<li><a href="">邮箱</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- ----------------------------------------------------------------------- -->
+	<!-- 音乐播放器 -->
+	<script src="./js/APlayer.min.js"></script>
+	<script src="./js/Meting.min.js"></script>
+	<meting-js server="netease" type="playlist" id="2394498439" fixed="false" autoplay="true" loop="all" order="list"
+		preload="auto" list-folded="true" list-max-height="500px" lrc-type="2">
+	</meting-js>
+	<!-- ----------------------------------------------------------------------- -->
+	<!-- 计时器 -->
+	<script src="js/jsq.js" type="text/javascript"></script>
 
 
-    <div class="div3">
-        <ul>
-            <li><a href="">首页</a></li>
-            <li> &nbsp; . &nbsp; </li>
-            <li><a href="">QQ</a></li>
-            <li> &nbsp; . &nbsp; </li>
-            <li><a href="">邮箱</a></li>
-        </ul>
-    </div>
-
-    
-<!-- 音乐播放器 -->
-    <script src="./js/APlayer.min.js"></script>
-    <script src="./js/Meting.min.js"></script>
-    <meting-js
-        server="netease"
-        type="playlist"
-        id="2394498439"
-        fixed="true"
-        autoplay="true"
-        loop="all"
-        order="list"
-        preload="auto"
-        list-folded="true"
-        list-max-height="500px"
-        lrc-type="1">
-    </meting-js>
-
-<!-- 侧边栏 -->
-<div class="container">
-    <!-- --t是自定义属性,通过var函数可调用 -->
-    <li style="--t:20%;"><a href="#">1</a></li>
-    <li style="--t:30%;"><a href="#">2</a></li>
-    <li style="--t:40%;"><a href="#">3</a></li>
-    <li style="--t:50%;"><a href="#">4</a></li>
-    <li style="--t:60%;"><a href="#">5</a></li>
-    <li style="--t:70%;"><a href="#">6</a></li>
-
-    <div class="top"></div>
-    <div class="middle"></div>
-    <div class="bottom"></div>
-    
-</div>
-
-    <!-- 计时器 -->
-    <script src="js/jsq.js" type="text/javascript"></script>
 
 </body><!-- 页面主体结束 -->
 
