@@ -22,6 +22,11 @@
         body {
             background-image: linear-gradient(120deg, #12015c 0%, #000000 100%);
             height: 100vh;
+            min-height: 100vh;
+            min-height: -moz-available;
+            min-height: -webkit-fill-available;
+            min-height: fill-available;
+
         }
 
         h1 {
@@ -137,7 +142,8 @@
 
 <body>
     <h1>资源库
-        <p style="color: #73459e;">点击标题获取资源</p>
+         <h1><a href="index.html" style="text-decoration: none;">推荐资源</a>
+             <p style="color: #73459e;">点击标题获取资源</p>
     </h1>
 
     <h2>Mr.Chen</h2>
