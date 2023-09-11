@@ -2,8 +2,11 @@
 body {
     margin: 0;
     padding: 0;
-    height: 800px;
-    width: 800px;
+    height: 100vh;
+    min-height: 100vh;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
     overflow: hidden;
 }
 
