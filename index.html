@@ -1,53 +1,76 @@
 <!DOCTYPE html> <!--html5声明-->
 <html lang="en"> <!-- 网页声明 zh-CN指的是中文 cn就是英文 -->
 
-<head> <!-- 头部标签开始 -->
+<> <!-- 头部标签开始 -->
 	<meta charset="UTF-8"> <!-- 声明字符编码 -->
 	<!-- <meta name="referrer" content="never">葫芦侠CDN图片防盗链 -->
-	<title>Mr.Chen </title> <!-- 网页标题 -->
-	<link rel="shortcut icon" href="./ico/ico.ico" type="image/x-icon"> <!-- 网页标题前的图标 -->
-
-	<link rel="stylesheet" href="./css/bj.css"><!-- 背景 -->
-	<link rel="stylesheet" href="./css/xzmf.css"> <!-- 旋转魔方 -->
+	<title>Mr.Chen - 主页</title> <!-- 网页标题 -->
+	<link rel="shortcut icon" href="./ico/ico.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./css/index.css"><!-- 整体布局 -->
 	<link rel="stylesheet" href="./css/mbl.css"> <!-- 毛玻璃球 -->
-	<link rel="stylesheet" href="./css/APlayer.min.css"> 
-	<script src="./js/APlayer.min.js"></script>	
-	<script src="./js/Meting.min.js"></script>		<!-- 音乐播放器 -->
+		
+	<link rel="stylesheet" href="./css/APlayer.min.css">
+	<script src="./js/APlayer.min.js"></script>
+	<script src="./js/Meting.min.js"></script> <!-- 音乐播放器 -->
 
-	<link href="css/animate.css" rel="stylesheet"/>
 
 
 	<!-- 网页样式--css -->
 	<style>
-		.item{
-			left: 100%;
-			height: 100%;
-		}
+		
 	</style>
 </head>
 <!-- 头部标签结束 -->
 
 <body><!-- 页面主体开始 -->
-
-	<!--背景-->
-	<canvas id="canv"></canvas>
-	<script src="js/bj.js" type="text/javascript"></script>
-
-	<!-- ----------------------------------------------------------------------- -->
-
-	<!-- 旋转魔方 -->
-	<div class="xzmf">
-		<div class="mf_rubik_cube">
-			<p class="handsome_mf">☆</p>
-			<p class="handsome_mf">☆</p>
-			<p class="handsome_mf">☆</p>
-			<p class="handsome_mf">☆</a>
-			<p class="handsome_mf">☆</p>
-			<p class="handsome_mf">☆</p>
-		</div>
-	</div>
-
-	<!-- ----------------------------------------------------------------------- -->
+	
+	<!-- 背景 -->
+	<canvas id="stars" class="stars"></canvas>
+	<script>
+		var starCount = 1500;
+		var starArr = new Array();
+	
+		var Star = function () {
+			this.x = windowWidth * Math.random();
+			this.y = 5000 * Math.random();
+			this.text = ".";
+			this.color = "white";
+			this.randomColor = function () {
+				var _r = Math.random();
+				if (_r < 0.5) {
+					this.color = "#333";
+				} else {
+					this.color = "white";
+				}
+			}
+		}
+	
+		window.onload = function () {
+			var starsE = document.getElementById("stars");
+			windowWidth = window.innerWidth;
+			starsE.width = windowWidth;
+			starsE.height = window.innerHeight;
+			context = starsE.getContext("2d");
+	
+			for (var i = 0; i < starCount; i++) {
+				var star = new Star();
+				star.randomColor();
+				starArr.push(star);
+			}
+	
+			showStars();
+		}
+	
+		function showStars() {
+			for (var n = 0; n < starCount; n++) {
+				starArr[n].randomColor();
+				context.fillStyle = starArr[n].color;
+				context.fillText(starArr[n].text, starArr[n].x, starArr[n].y);
+			}
+	
+			setTimeout("showStars()", 100);
+		}
+	</script>
 
 	<!--毛玻璃球-->
 	<div class="mbl">
@@ -72,11 +95,16 @@
 		<!-- 文字烟雾效果 -->
 		<div class="div1-1">
 			<center>
-				<h2>逃跑吧</h2><br>
-				<p class="text">“逃出这满是世俗的生活，把自己流放到世界上的某个角落。”</p>
+				<h2>逃跑吧</h2>
+				<br />
+				<p class="text">
+					“逃出这满是世俗的生活，把自己流放到世界上的某个角落。”
+				</p>
+				<br />
+				<hr />
 			</center>
 		</div>
-		<!-- ----------------------------------------------------------------------- -->
+		
 		<script>var txt = document.querySelector(".text");
 			txt.innerHTML = txt.textContent.replace(/\S/g, "<span>$&</span>");
 			var arr = document.querySelectorAll("span");
@@ -89,55 +117,27 @@
 		</script>
 		<!-- ----------------------------------------------------------------------- -->
 		<div class="div1-2">
+			
 			<ul>
-				<li><a href="">首页</a></li>
-				<li> &nbsp; . &nbsp; </li>
-				<li><a href="http://music.163.com/playlist/2394498439/1578815994/?userid=1578815994" target="_blank">网易云</a></li>
-				<li> &nbsp; . &nbsp; </li>
-				<li><a href="#" class="btn1">联系我</a></li>
-				<div id="item" class="item">
-				  <img src="img/wx.jpg">
-				</div>
+				<li><a href="sy.html">首页</a></li>
+				<li>.</li>
+				<li><a href="http://music.163.com/playlist/2394498439/1578815994/?userid=1578815994"
+						target="_blank">网易云</a></li>
+				<li>.</li>
+				<li><a href="tj.html">推荐</a></li>
 			</ul>
 		</div>
 	</div>
 
-	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
-	<script src="js/jquery.popup.js"></script>
-	<script>
-		$(function () {
-		      $('.btn1').on('click', function () {
-		        $('#item').popup({
-		          time: 1000,
-		          classAnimateShow: 'flipInX',
-		          classAnimateHide: 'hinge',
-		          onPopupClose: function e() {
-		            // console.log('0')
-		          },
-		          onPopupInit: function e() {
-		            // console.log('0')
-		          }
-		        });
-		      });    
-		    });
-	</script>
 	<!-- ----------------------------------------------------------------------- -->
-	
+
 	<!-- 音乐播放器 -->
-	<meting-js 
-	server="netease" 
-	type="playlist" 
-	id="2394498439" 
-	fixed="true" 
-	autoplay="true" 
-	preload="auto" 
-	list-folded="true" 
-	list-max-height="400px" 
-	mutex="true">
+	<meting-js server="netease" type="playlist" id="2394498439" fixed="true" autoplay="true" preload="auto"
+		list-folded="true" list-max-height="400px" mutex="true">
 	</meting-js>
+
 	<!-- ----------------------------------------------------------------------- -->
-	<!-- 计时器 -->
-	<script src="js/jsq.js" type="text/javascript"></script>
+	<script src="./js/jsq.js" type="text/javascript"></script><!-- 计时器 -->
 
 
 
